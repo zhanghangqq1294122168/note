@@ -1,0 +1,15 @@
+server:
+  port: 8763
+spring:
+  application:
+    name: core-service
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: note-config
+      profile: data,eureka,mvc
+      name: note
+

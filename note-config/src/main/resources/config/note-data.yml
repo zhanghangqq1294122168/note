@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.79.62.203:3306/note?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: zh19970322
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false

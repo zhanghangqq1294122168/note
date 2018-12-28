@@ -1,0 +1,15 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: upload-service
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: note-config
+      profile: data,eureka,mvc
+      name: note
+
