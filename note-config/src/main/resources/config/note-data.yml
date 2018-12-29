@@ -1,15 +1,17 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://120.79.62.203:3306/note?useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: root
-    password: zh19970322
+    url: jdbc:postgresql://120.79.62.203:5432/note
+    username: zhanghang
+    password: Zh@19970322
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always
 
   jpa:
-    open-in-view: false
     show-sql: true
-    generate-ddl: true
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         temp:
           use_jdbc_metadata_defaults: false
