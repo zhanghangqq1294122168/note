@@ -33,7 +33,7 @@ public class FolderTreeController {
 
     @PostMapping("/add")
     @ResponseBody
-    public Result add(FolderTree folderTree) {
+    public Result add(@RequestBody FolderTree folderTree) {
         return Result.ok(repository.save(folderTree));
     }
 

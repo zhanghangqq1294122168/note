@@ -31,5 +31,6 @@ public class ArticleController {
     @GetMapping("/findList")
     public Result findList(@PageableDefault(direction = Sort.Direction.DESC) Pageable pageable) {
         return Result.ok(articleRepository.findAll(pageable));
+
     }
 }

@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -23,9 +24,11 @@ public abstract class BasePojo implements Serializable {
 
     @CreatedDate
     @Column(name = "create_time")
+    @JsonIgnore
     private Date createTime;
 
     @LastModifiedDate
+    @JsonIgnore
     @Column(name = "update_time")
     private Date updateTime;
 }

@@ -27,8 +27,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <docker.host>http://192.168.0.13:4243</docker.host>
-        <registry.url>192.168.0.13:5000</registry.url>
+        <docker.url>http://120.79.62.203:2375</docker.url>
+        <registry.url>120.79.62.203:5000</registry.url>
     </properties>
 
     <dependencies>
