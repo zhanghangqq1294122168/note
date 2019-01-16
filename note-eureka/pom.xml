@@ -62,6 +62,7 @@
                 <version>1.4.0</version>
                 <configuration>
                     <repository>note/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>target/${project.artifactId}.jar</JAR_FILE>
                     </buildArgs>
