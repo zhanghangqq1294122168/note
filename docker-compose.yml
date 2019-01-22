@@ -1,0 +1,17 @@
+version: "3"
+services:
+  note-eureka:
+    build:
+      context: ./
+      dockerfile: ./note-eureka/Dockerfile
+    restart: always
+    ports:
+      - 8761:8761
+
+  note-config:
+      links:
+        - note-eureka
+    build:
+      context: ./
+      dockerfile: ./note-config/Dockerfile
+    restart: always
