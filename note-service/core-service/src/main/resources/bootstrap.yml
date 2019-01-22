@@ -2,7 +2,7 @@ server:
   port: 8763
 spring:
   application:
-    name: core-service
+    name: core-sevice
   # 配置中心
   cloud:
     config:
@@ -10,8 +10,7 @@ spring:
       discovery:
         enabled: true
         service-id: note-config
-      profile: data,eureka,mvc
-      name: note
+      profile: dev
+      name: core
   jackson:
     default-property-inclusion: non_null
-
