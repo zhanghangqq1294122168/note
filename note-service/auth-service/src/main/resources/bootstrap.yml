@@ -1,0 +1,14 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: core-sevice
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: note-config
+      profile: dev
+      name: auth
