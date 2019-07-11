@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://120.79.62.203:5432/note
+    username: zhanghang
+    password: Zh@19970322
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+# 注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
