@@ -1,4 +1,4 @@
-package entity;
+package cn.zh.auth.service.entity;
 
 import entity.BasePojo;
 import lombok.Data;
