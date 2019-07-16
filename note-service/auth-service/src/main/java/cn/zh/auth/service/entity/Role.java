@@ -22,7 +22,7 @@ public class Role extends BasePojo implements Serializable {
     /**
      * 用一个角色对应多个权限
      */
-    @OneToMany(cascade= CascadeType.ALL,fetch= FetchType.LAZY,targetEntity=Permission.class)
-    @JoinColumn(name="employeeId",nullable=false)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE,targetEntity = Permission.class)
+    @JoinColumn(name = "permission_id")
     private Set<Permission> permissions;
 }

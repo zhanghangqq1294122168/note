@@ -16,7 +16,7 @@ import java.util.Set;
 @Entity
 @Data
 @Table(indexes = {@Index(columnList = "id")})
-public class User extends BasePojo implements Serializable {
+public class Member extends BasePojo implements Serializable {
     private static final long serialVersionUID = 1904094591712926019L;
     private String memberName;
     private String password;
@@ -27,7 +27,7 @@ public class User extends BasePojo implements Serializable {
     /**
      * 一个用户对应多个角色
      */
-    @OneToMany(cascade=CascadeType.ALL,fetch= FetchType.LAZY,targetEntity=Role.class)
-    @JoinColumn(name="employeeId",nullable=false)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE,targetEntity = Role.class)
+    @JoinColumn(name = "role_id")
     private Set<Role> roles;
 }

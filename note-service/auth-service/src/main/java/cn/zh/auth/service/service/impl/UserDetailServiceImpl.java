@@ -1,9 +1,9 @@
 package cn.zh.auth.service.service.impl;
 
+import cn.zh.auth.service.entity.Member;
 import cn.zh.auth.service.repository.UserRepository;
 import cn.zh.auth.service.entity.Permission;
 import cn.zh.auth.service.entity.Role;
-import cn.zh.auth.service.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,7 +28,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userRepository.findByMemberName(userName);
+        Member user = userRepository.findByMemberName(userName);
         if (user == null) {
             return null;
         }
