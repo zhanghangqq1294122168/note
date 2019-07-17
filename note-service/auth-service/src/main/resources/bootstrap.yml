@@ -2,7 +2,7 @@ server:
   port: 8088
 spring:
   application:
-    name: core-sevice
+    name: auth-sevice
   # 配置中心
   cloud:
     config:

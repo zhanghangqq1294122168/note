@@ -1,3 +1,5 @@
+server:
+  port: 8888
 spring:
   application:
     name: note-gateWay
@@ -8,15 +10,21 @@ spring:
         locator:
           lowerCaseServiceId: true
           enabled: true
-    config:
-      fail-fast: true
-      discovery:
-        enabled: true
-        service-id: note-config
-      profile: eureka
-      name: note
-server:
-  port: 8888
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:${server.port}/auth/oauth/token
+      user-authorization-uri: http://localhost:${server.port}/auth/oauth/authorize
+      client-id: web
+    resource:
+      user-info-uri:  http://localhost:${server.port}/auth/api/member
+      prefer-token-info: false
+
+
 
 
 

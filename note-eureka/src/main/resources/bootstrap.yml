@@ -1,5 +1,8 @@
 server:
   port: 8761
+spring:
+  application:
+    name: note-eureka
 eureka:
   instance:
     hostname: localhost
@@ -9,6 +12,3 @@ eureka:
     fetch-registry: false
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-spring:
-  application:
-    name: note-eureka
