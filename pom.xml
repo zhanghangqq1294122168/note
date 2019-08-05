@@ -7,7 +7,7 @@
     <groupId>note</groupId>
     <artifactId>note</artifactId>
     <name>note</name>
-    <version>${note.version}</version>
+    <version>1.0-SNAPSHOT</version>
 
     <modules>
         <module>note-service</module>
