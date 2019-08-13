@@ -2,7 +2,7 @@ server:
   port: 8763
 spring:
   application:
-    name: core-sevice
+    name: core-service
   # 配置中心
   cloud:
     config:
