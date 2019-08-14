@@ -23,7 +23,8 @@ import javax.sql.DataSource;
 
 /**
  * 〈OAuth2认证服务器〉
- *  认证服务
+ * 认证服务
+ *
  * @author wangmx
  * @since 1.0.0
  */
@@ -66,25 +67,26 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //配置在内存中，也可以从数据库中获取
-        clients.inMemory() // 使用in-memory存储
-                // client_id   android
-                .withClient("哈哈")
-                .scopes("read")
-                // client_secret   android
-                .secret("1")
-                // 该client允许的授权类型
-                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
-                .and()
-                // client_id
-                .withClient("webapp")
-                .scopes("read")
-                //.secret("webapp")  // client_secret
-                // 该client允许的授权类型
-                .authorizedGrantTypes("implicit")
-                .and()
-                .withClient("browser")
-                .authorizedGrantTypes("refresh_token", "password")
-                .scopes("read");
+//        clients.inMemory() // 使用in-memory存储
+//                // client_id   android
+//                .withClient("哈哈")
+//                .scopes("read")
+//                // client_secret   android
+//                .secret("1")
+//                // 该client允许的授权类型
+//                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
+//                .and()
+//                // client_id
+//                .withClient("webapp")
+//                .scopes("read")
+//                //.secret("webapp")  // client_secret
+//                // 该client允许的授权类型
+//                .authorizedGrantTypes("implicit")
+//                .and()
+//                .withClient("browser")
+//                .authorizedGrantTypes("refresh_token", "password")
+//                .scopes("read");
+        clients.withClientDetails(clientDetails());
     }
 
     @Bean
@@ -93,7 +95,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     @Bean
-    public WebResponseExceptionTranslator webResponseExceptionTranslator(){
+    public WebResponseExceptionTranslator webResponseExceptionTranslator() {
         return new MssWebResponseExceptionTranslator();
     }
 
@@ -109,16 +111,17 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      * <p>注意，自定义TokenServices的时候，需要设置@Primary，否则报错，</p>
      * 自定义的token
      * 认证的token是存到redis里的
+     *
      * @return tokenServices
      */
     @Primary
     @Bean
-    public DefaultTokenServices defaultTokenServices(){
+    public DefaultTokenServices defaultTokenServices() {
         DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setTokenStore(tokenStore());
         tokenServices.setSupportRefreshToken(true);
         // token有效期自定义设置，默认12小时
-        tokenServices.setAccessTokenValiditySeconds(60*60*12);
+        tokenServices.setAccessTokenValiditySeconds(60 * 60 * 12);
         // refresh_token默认30天
         tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);
         return tokenServices;
